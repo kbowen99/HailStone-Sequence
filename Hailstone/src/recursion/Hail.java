@@ -2,9 +2,13 @@ package recursion;
 import java.math.BigInteger;
 
 public class Hail {
-	
 	BigInteger iterations = new  BigInteger("0");
 	BigInteger maxReached = new BigInteger("0");
+	int seed = 0;
+	
+	public Hail(int tmpSeed){
+		this.seed = tmpSeed;
+	}
 	
 	//Basic code is basic
 	@Deprecated
@@ -40,9 +44,8 @@ public class Hail {
 		return bigBlackMagic(new BigInteger(n));
 	}
 	
-	@Deprecated
 	public BigInteger bigBlackMagic(int n){
-		return bigBlackMagic(new BigInteger(Integer.toString(n)));
+		return bigBlackMagic(new BigInteger(n + ""));
 	}
 	
 	public BigInteger getIterations(){
@@ -51,5 +54,9 @@ public class Hail {
 	
 	public BigInteger getMaxReached(){
 		return maxReached;
+	}
+	
+	public int getConstructedSeed(){
+		return seed;
 	}
 }
