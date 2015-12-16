@@ -7,6 +7,7 @@ public class Hail {
 	int seed = 0;
 	
 	public Hail(int tmpSeed){
+		//Variable is passed in constructor out of laziness (less to keep track of in the StreetCred Method)
 		this.seed = tmpSeed;
 	}
 	
@@ -23,6 +24,7 @@ public class Hail {
 		}
 	}
 	
+	//Go big or go home
 	public BigInteger bigBlackMagic(BigInteger n){
 		System.out.print(n + ", ");
 		iterations = iterations.add(BigInteger.ONE);
@@ -31,6 +33,7 @@ public class Hail {
 			maxReached = n;
 		}
 		
+		//aren't BigInts Fun?
 		if (n.equals(BigInteger.ONE)){
 			return n;
 		} else if (n.mod(new BigInteger("2")).equals(BigInteger.ZERO)) {
@@ -40,13 +43,17 @@ public class Hail {
 		}
 	}
 	
+	//options
 	public BigInteger bigBlackMagic(String n){
 		return bigBlackMagic(new BigInteger(n));
 	}
 	
+	//even lazier options
 	public BigInteger bigBlackMagic(int n){
 		return bigBlackMagic(new BigInteger(n + ""));
 	}
+	
+	//Accessors VVVV
 	
 	public BigInteger getIterations(){
 		return iterations;
