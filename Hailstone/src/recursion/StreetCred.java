@@ -2,6 +2,8 @@ package recursion;
 import java.math.BigInteger;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class StreetCred {
 	ArrayList<BigInteger> highVal = new ArrayList<BigInteger>();
 	ArrayList<String> numHighVal = new ArrayList<String>();
@@ -9,12 +11,14 @@ public class StreetCred {
 	ArrayList<String> numHighSteps = new ArrayList<String>();
 	
 	public void earn() {
+		fillTheLists();
 		Hail testing = new Hail(0);
 		for (int i = 1; i<1000; i++){
 			testing = new Hail(i);
 			testing.bigBlackMagic(i);
 			compare(testing);
 		}
+		JOptionPane.showMessageDialog(null, statsOutput());
 	}
 	
 	private void fillTheLists(){
@@ -40,4 +44,21 @@ public class StreetCred {
 			}
 		}
 	}
+	
+	private String statsOutput(){
+		String tmpOut = "Stats: ";
+		
+		//5 Highest Vals
+		tmpOut += "\n| 5 Highest |";
+		for (int i = 0; i < 5; i++){
+			tmpOut += "\n " + highVal.get(i) +  " @ Seed " + numHighVal.get(i);
+		}
+		//5 longest Vals
+		tmpOut += "\n| 5 Longest Lengths |";
+		for (int i = 0; i < 5; i++){
+			tmpOut += "\n " + highSteps.get(i) +  " @ Seed " + numHighSteps.get(i);
+		}
+		return tmpOut;
+	}
+	
 }
